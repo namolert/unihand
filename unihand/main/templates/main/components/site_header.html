@@ -1,0 +1,36 @@
+{% load static %}
+<header class="site-header">
+  <div class="site-header-item">
+    <a class="site-header-brand" href="{% url 'home' %}">
+      <span>UniHand</span>
+    </a>
+  </div>
+  <div class="site-header-menu">
+    {% if user.is_authenticated %}
+      <div class="site-header-item">
+        <a href="#">
+          <span>{{ user.username }}</span>
+        </a>
+      </div>
+      <div class="site-header-item">
+        <form action="#" method="post">
+          {% csrf_token %}
+          <button type="submit">
+            <span>Logout</span>
+          </button>
+        </form>
+      </div>
+    {% else %}
+      <div class="site-header-item">
+        <a href="#">
+          <span>Login</span>
+        </a>
+      </div>
+      <div class="site-header-item">
+        <a href="#">
+          <span>Register</span>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</header>
