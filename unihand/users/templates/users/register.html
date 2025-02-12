@@ -1,0 +1,77 @@
+{% extends 'main/components/base.html' %}
+
+{% block site_title %}Register - {% endblock %}
+
+{% block content %}
+<section class="content-section content-section-single">
+  <div class="content-container content-container-narrow">
+    <h3 class="content-title">Register</h3>
+    <form action="{% url 'register' %}" method="POST">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <div class="form-field">
+        {{ form.username.label_tag }}*
+        {{ form.username }}
+        {{ form.username.errors }}
+      </div>
+      
+      <div class="form-field">
+        {{ form.email.label_tag }}*
+        {{ form.email }}
+        {{ form.email.errors }}
+      </div>
+
+      <div class="form-field">
+        {{ form.password1.label_tag }}*
+        {{ form.password1 }}
+        {{ form.password1.errors }}
+      </div>
+
+      <div class="form-field">
+        {{ form.password2.label_tag }}*
+        {{ form.password2 }}
+        {{ form.password2.errors }}
+      </div>
+
+      <div class="form-field">
+        {{ form.date_of_birth.label_tag }}*
+        {{ form.date_of_birth }}
+        {{ form.date_of_birth.errors }}
+      </div>
+
+      <div class="form-field">
+        {{ form.gender.label_tag }}*
+        {{ form.gender }}
+        {{ form.gender.errors }}
+      </div>
+
+      <div class="form-field">
+        {{ form.joined_year.label_tag }}*
+        {{ form.joined_year }}
+        {{ form.joined_year.errors }}
+      </div>
+
+      <div class="form-field">
+        {{ form.left_year.label_tag }}
+        {{ form.left_year }}
+        {{ form.left_year.errors }}
+      </div>
+
+      <div class="form-field">
+        {{ form.bio.label_tag }}
+        {{ form.bio }}
+        {{ form.bio.errors }}
+      </div>
+
+      <div class="form-field">
+        <button class="button button-primary" type="submit">Register</button>
+      </div>
+
+      <p>
+        <a href="{% url 'login' %}">Login</a>
+      </p>
+    </form>
+  </div>
+</section>
+{% endblock %}
