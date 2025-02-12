@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from users.models import User
 
 class RegisterForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30, required=True)
+    last_name = forms.CharField(max_length=30, required=True)
     email = forms.EmailField(required=True)
     date_of_birth = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}))
     gender = forms.ChoiceField(choices=User.GENDER_CHOICES, required=False)
@@ -13,7 +15,7 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2', 'date_of_birth', 'gender', 'joined_year', 'left_year', 'bio']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'date_of_birth', 'gender', 'joined_year', 'left_year', 'bio']
 
     def save(self, commit=True):
         user = super().save(commit=False)

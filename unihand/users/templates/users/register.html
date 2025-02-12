@@ -15,6 +15,18 @@
         {{ form.username }}
         {{ form.username.errors }}
       </div>
+
+      <div class="form-field">
+        {{ form.first_name.label_tag }}*
+        {{ form.first_name }}
+        {{ form.first_name.errors }}
+      </div>
+
+      <div class="form-field">
+        {{ form.last_name.label_tag }}*
+        {{ form.last_name }}
+        {{ form.last_name.errors }}
+      </div>
       
       <div class="form-field">
         {{ form.email.label_tag }}*
