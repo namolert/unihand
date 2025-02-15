@@ -13,7 +13,7 @@
         </a>
       </div>
       <div class="site-header-item">
-        <form action="#" method="post">
+        <form action="{% url 'logout' %}" method="post">
           {% csrf_token %}
           <button type="submit">
             <span>Logout</span>
@@ -22,7 +22,7 @@
       </div>
     {% else %}
       <div class="site-header-item">
-        <a href="#">
+        <a href="{% url 'login' %}">
           <span>Login</span>
         </a>
       </div>
