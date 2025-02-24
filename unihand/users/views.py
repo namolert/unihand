@@ -33,7 +33,9 @@ def user_logout(request):
     return redirect('home')
 
 def role_based_redirect(request):
-    if request.user.role == "Student":
+    if not request.user.is_authenticated:
+        return redirect("home")
+    elif request.user.role == "Student":
         return redirect("student_home")
     elif request.user.role == "Professor":
         return redirect("professor_home")
