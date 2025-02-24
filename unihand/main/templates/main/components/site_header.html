@@ -12,8 +12,21 @@
           <span>{{ user.username }}</span>
         </a>
       </div>
+        {% if user.role == 'Student' and user.student %}
+          <div class="site-header-item">
+            <a href="#">
+              <span>{{ user.student.student_id }}</span>  
+            </a>
+          </div>
+        {% elif user.role == 'Professor' %}
+          <div class="site-header-item">
+            <a href="#">
+              <span>{{ user.professor.professor_id }}</span>  
+            </a>
+          </div>
+        {% endif %}
       <div class="site-header-item">
-        <form action="#" method="post">
+        <form action="{% url 'logout' %}" method="post">
           {% csrf_token %}
           <button type="submit">
             <span>Logout</span>
@@ -22,13 +35,8 @@
       </div>
     {% else %}
       <div class="site-header-item">
-        <a href="#">
+        <a href="{% url 'login' %}">
           <span>Login</span>
-        </a>
-      </div>
-      <div class="site-header-item">
-        <a href="{% url 'register' %}">
-          <span>Register</span>
         </a>
       </div>
     {% endif %}

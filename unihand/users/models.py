@@ -9,6 +9,7 @@ class User(AbstractUser):
     ]
     
     ROLE_CHOICES = [
+        ('Guest', 'Guest'),
         ('Student', 'Student'),
         ('Professor', 'Professor'),
         ('Admin', 'Admin'),
@@ -25,3 +26,4 @@ class User(AbstractUser):
 
     def __str__(self):
         return f"{self.username} ({self.role})"
+    
