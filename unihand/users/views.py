@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from .forms import RegisterForm
+from django.contrib.auth.hashers import check_password
 
 from users.forms import RegisterForm, LoginForm
 from users.models import User
@@ -39,4 +40,3 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('home')
-
