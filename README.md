@@ -77,24 +77,6 @@ Visit http://127.0.0.1:8000/ in your browser to access the application.
 This project includes scripts to **create** and **delete** mock data for testing.  
 The mock data includes **Users, Students, Professors, and Programs**.
 
-### Files Overview
-
-#### `mock_data.py`
-
-- Contains predefined **mock users** and **mock programs**.
-- Separates data from logic to keep code **clean and modular**.
-
-#### `create_mock_users.py`
-
-- **Creates** mock users and assigns them roles.
-- **Links Students to Programs** and generates student/professor records.
-- **Hashes passwords** for security.
-
-#### `delete_mock_data.py`
-
-- **Deletes** all mock users, students, professors, and programs.
-- Ensures **cleanup of test data** to keep the database clean.
-
 ### How to Use
 
 #### 1️. **Setup Django Environment**
@@ -120,7 +102,7 @@ To remove mock data from the database, run:
 python delete_mock_data.py
 ```
 
-You can modify mock data in `mock_data.py.`
+You can modify mock data in `mock_data.py`
 
 ## Technologies Used
 
