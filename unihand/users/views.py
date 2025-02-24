@@ -44,11 +44,11 @@ def role_based_redirect(request):
 
 def student_home(request):
     is_student(request.user)
-    return render(request, "main/student/home.html")
+    return render(request, "students/home.html")
 
 def professor_home(request):
     is_professor(request.user)
-    return render(request, "main/professor/home.html")
+    return render(request, "professors/home.html")
 
 def admin_home(request):
     is_admin(request.user)
