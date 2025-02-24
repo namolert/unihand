@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from users import views
 
 urlpatterns = [
     path("", include("main.urls")),
+    path("role-redirect/", views.role_based_redirect, name="role_redirect"),
     path("admin/", admin.site.urls),
     path("users/", include("users.urls")),
 ]
