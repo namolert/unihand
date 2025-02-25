@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+@login_required
+def todos_view(request):
+    return render(request, "todos/todos.html")

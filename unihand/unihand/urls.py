@@ -23,4 +23,11 @@ urlpatterns = [
     path("role-redirect/", views.role_based_redirect, name="role_redirect"),
     path("admin/", admin.site.urls),
     path("users/", include("users.urls")),
+    # path('professors/', include('professors.urls')),
+    path('students/', include('students.urls')),
+    path('schedules/', include('schedules.urls')),
+    path('enrollments/', include('enrollments.urls')),
+    path('appointments/', include('appointments.urls')),
+    path('todos/', include('todos.urls')),
+    path('grades/', include('grades.urls')),
 ]
