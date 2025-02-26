@@ -22,25 +22,3 @@ def professor_home(request):
         "appointments": appointments,
     }
     return render(request, "professors/home.html", context)
-
-@login_required
-def professor_course_schedule(request):
-    professor = request.user.professor
-    courses_taught = CourseSchedule.objects.filter(professor=professor)
-
-    context = {
-        "course_schedule": courses_taught,
-    }
-    return render(request, "professors/course_schedule.html", context)
-
-@login_required
-def view_grades_view(request):
-    professor = request.user.professor
-    courses_taught = Course.objects.filter(professors=professor)
-    grades = Grade.objects.filter(course__in=courses_taught)
-    
-    context = {
-        "grades": grades
-    }
-    return render(request, "professors/view_grades.html", context)
-
