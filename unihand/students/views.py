@@ -23,24 +23,3 @@ def student_home(request):
         "todos": todos,
     }
     return render(request, "students/home.html", context)
-
-@login_required
-def student_course_schedule(request):
-    student = request.user.student
-    enrolled_courses = Enrollment.objects.filter(student=student).values_list("course", flat=True)
-    course_schedule = CourseSchedule.objects.filter(course_id__in=enrolled_courses)
-
-    context = {
-        "course_schedule": course_schedule,
-    }
-    return render(request, "students/course_schedule.html", context)
-
-@login_required
-def my_grades_view(request):
-    student = request.user.student
-    grades = Grade.objects.filter(student=student)
-    
-    context = {
-        "grades": grades
-    }
-    return render(request, "students/my_grades.html", context)
