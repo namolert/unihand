@@ -1,11 +1,12 @@
 from django.db import models
+from courses.models import Course
 from students.models import Student
 from programs.models import Program
 from users.models import User
 
 class Grade(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="grades")
-    program = models.ForeignKey(Program, on_delete=models.CASCADE, related_name="grades")
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="grades", null=True, blank=True)
     professor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, limit_choices_to={'role': 'Professor'})
     
     GRADE_CHOICES = [
