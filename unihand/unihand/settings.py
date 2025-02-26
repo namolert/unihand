@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'todos',
     'users',
     'main',
+    'grades',
 ]
 
 MIDDLEWARE = [

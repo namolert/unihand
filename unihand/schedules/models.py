@@ -1,9 +1,11 @@
 from django.db import models
 from courses.models import Course
+from professors.models import Professor
 
 class CourseSchedule(models.Model):
     academic_year = models.CharField(max_length=10)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="schedules")
+    professor = models.ForeignKey(Professor, on_delete=models.CASCADE, related_name="schedules", null=True, blank=True)
     is_scheduled = models.BooleanField(default=False)
     is_online = models.BooleanField(default=False)
     schedule_start = models.DateTimeField()
@@ -24,4 +26,4 @@ class CourseSchedule(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.course.course_code} - {self.academic_year}"
+        return f"{self.course.course_name} ({self.academic_year}) - {self.professor.user.get_full_name()}"
