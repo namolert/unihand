@@ -3,6 +3,33 @@
 
 {% block content %}
 <section class="home-landing">
-    <h1 class="home-landing-text">My Grades Page</h1>
-  </section>
+  <h1 class="home-landing-text">My Grades</h1>
+</section>
+
+<div class="container mt-4">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Course Code</th>
+        <th>Course Name</th>
+        <th>Grade</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in courses_with_grades %}
+      <tr>
+        <td>{{ item.course.course_code }}</td>
+        <td>{{ item.course.course_name }}</td>
+        <td>{{ item.grade }}</td>
+        <td>{{ item.comments }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="4" class="text-center">No enrollments found.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}
