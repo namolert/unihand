@@ -3,6 +3,46 @@
 
 {% block content %}
 <section class="home-landing">
-    <h1 class="home-landing-text">View Grades Page</h1>
-  </section>
+    <h1 class="home-landing-text">View Grades</h1>
+</section>
+
+<div class="container mt-4">
+    <form method="GET" action="{% url 'view_grades_view' %}">
+        <label for="course_select">Select Course:</label>
+        <select id="course_select" name="course_id" class="form-control" onchange="this.form.submit()">
+            <option value="">-- Choose a Course --</option>
+            {% for course in courses_taught %}
+            <option value="{{ course.course_id }}" {% if selected_course and selected_course.course_id == course.course_id %}selected{% endif %}>
+                {{ course.course_code }} - {{ course.course_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </form>
+
+    {% if selected_course %}
+    <h2 class="mt-4">Grades for {{ selected_course.course_name }}</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Grade</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in students_with_grades %}
+            <tr>
+                <td>{{ item.student.user.first_name }} {{ item.student.user.last_name }}</td>
+                <td>{{ item.grade }}</td>
+                <td>{{ item.comments }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="text-center">No students found for this course.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
 {% endblock %}

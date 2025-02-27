@@ -8,19 +8,19 @@
   <div class="site-header-menu">
     {% if user.is_authenticated %}
       <div class="site-header-item">
-        <a href="#">
+        <a href="{% url 'role_redirect' %}">
           <span>{{ user.username }}</span>
         </a>
       </div>
         {% if user.role == 'Student' and user.student %}
           <div class="site-header-item">
-            <a href="#">
+            <a href="{% url 'role_redirect' %}">
               <span>{{ user.student.student_id }}</span>  
             </a>
           </div>
         {% elif user.role == 'Professor' %}
           <div class="site-header-item">
-            <a href="#">
+            <a href="{% url 'role_redirect' %}">
               <span>{{ user.professor.professor_id }}</span>  
             </a>
           </div>

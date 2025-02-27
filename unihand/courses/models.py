@@ -6,7 +6,7 @@ class Course(models.Model):
     course_id = models.AutoField(primary_key=True)
     course_code = models.CharField(max_length=20, unique=True)
     course_name = models.CharField(max_length=255)
-    program = models.ForeignKey(Program, on_delete=models.CASCADE, related_name="courses")  # Renamed program_code
+    program_code = models.ForeignKey(Program, on_delete=models.CASCADE, related_name="courses")
     semester_number = models.PositiveIntegerField()
 
     COURSE_TYPE_CHOICES = [
@@ -20,4 +20,4 @@ class Course(models.Model):
     professors = models.ManyToManyField(Professor, related_name="courses_taught")
 
     def __str__(self):
-        return f"{self.course_code} - {self.course_name} ({self.program.program_name})"
+        return f"{self.course_code} - {self.course_name} ({self.program_code.program_name})"

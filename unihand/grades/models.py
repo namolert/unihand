@@ -23,4 +23,4 @@ class Grade(models.Model):
     date_recorded = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.student.user.username} - {self.program.program_name} - {self.grade}"
+        return f"{self.student.user.username} - {self.course.course_name} - {self.grade}"
