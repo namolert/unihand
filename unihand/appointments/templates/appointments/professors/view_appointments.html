@@ -1,0 +1,29 @@
+{% extends "main/components/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="home-landing">
+    <h1 class="home-landing-text">Appointments Requests</h1>
+</section>
+{% for appointment in appointments %}
+    <div>
+        <p><strong>Student:</strong> {{ appointment.student.user.get_full_name }}</p>
+        <p><strong>Date:</strong> {{ appointment.date }}</p>
+        <p><strong>Reason:</strong> {{ appointment.reason }}</p>
+        <p><strong>Status:</strong> {{ appointment.status }}</p>
+        
+        {% if appointment.status == "Pending" %}
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="appointment_id" value="{{ appointment.id }}">
+                <select name="status">
+                    <option value="Accepted">Accept</option>
+                    <option value="Declined">Decline</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        {% endif %}
+    </div>
+    <hr>
+{% endfor %}
+{% endblock %}
