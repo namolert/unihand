@@ -3,6 +3,48 @@
 
 {% block content %}
 <section class="home-landing">
-    <h1 class="home-landing-text">Todos Page</h1>
-  </section>
+  <h1 class="home-landing-text">Todos Page</h1>
+</section>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add Task</button>
+</form>
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Deadline</th>
+    <th>Status</th>
+    <th>Edit</th>
+  </tr>
+  {% for todo in todos %}
+  <tr>
+    <td>{{ todo.task_description }}</td>
+    <td>{{ todo.deadline }}</td>
+    <td>{{ todo.status }}</td>
+    <td>
+      <a href="{% url 'edit_todo' todo.id %}">Edit</a> |
+      <button onclick="confirmDelete('{{ todo.id }}')" 
+        style="color: red; border: none; background: none; cursor: pointer;">Delete
+      </button>
+    </td>
+  </tr>
+  {% empty %}
+  <tr>
+    <td colspan="4">No tasks added yet.</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="modal">
+  <div class="modal-content">
+      <p>Are you sure you want to delete this task?</p>
+      <button id="confirmDeleteBtn" style="background-color: red; color: white;">Confirm Delete</button>
+      <button onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<script src="{% static 'todos/todos.js' %}"></script>
+<link rel="stylesheet" href="{% static 'todos/todos.css' %}">
 {% endblock %}
