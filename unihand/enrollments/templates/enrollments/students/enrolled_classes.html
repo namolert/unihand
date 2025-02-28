@@ -3,6 +3,26 @@
 
 {% block content %}
 <section class="home-landing">
-    <h1 class="home-landing-text">Enrolled Classes Page</h1>
-  </section>
+    <h1 class="home-landing-text">Enrolled Classes</h1>
+</section>
+<table>
+  <tr>
+    <th>Course</th>
+    <th>Type</th>
+    <th>Professors</th>
+  </tr>
+  {% for course in enrolled_courses %}
+  <tr>
+    <td>{{ course.course_name }}</td>
+    <td>{{ course.course_type }}</td>
+    <td>
+      {% for professor in course.professors.all %}
+          {{ professor.user.get_full_name }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+  </td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="5">No course enrolled</td></tr>
+  {% endfor %}
+</table>
 {% endblock %}

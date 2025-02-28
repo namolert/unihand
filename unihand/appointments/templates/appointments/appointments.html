@@ -30,7 +30,7 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'request_appointment' %}" class="btn-add-appointment">Request an Appointment</a>
+    <a href="{% url 'request_appointment' %}" class="btn-add-appointment">Schedule   an Appointment</a>
 
     {% elif request.user.role == "Professor" %}
     <table>
