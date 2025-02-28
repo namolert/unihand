@@ -1,0 +1,15 @@
+{% extends 'main/components/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="home-landing">
+    <h1 class="home-landing-text">Todos Page</h1>
+</section>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+</form>
+
+<a href="{% url 'todos' %}">Back to To-Do List</a>
+{% endblock %}

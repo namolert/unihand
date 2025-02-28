@@ -4,5 +4,25 @@
 {% block content %}
 <section class="home-landing">
     <h1 class="home-landing-text">Course Schedule Page</h1>
-  </section>
+</section>
+<table>
+  <tr>
+    <th>Course</th>
+    <th>Professor</th>
+    <th>Type</th>
+    <th>Start</th>
+    <th>End</th>
+  </tr>
+  {% for schedule in course_schedule %}
+  <tr>
+    <td>{{ schedule.course.course_name }}</td>
+    <td>{{ schedule.professor.user.get_full_name }}</td>
+    <td>{{ schedule.course_type }}</td>
+    <td>{{ schedule.schedule_start }}</td>
+    <td>{{ schedule.schedule_end }}</td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="5">No schedules available</td></tr>
+  {% endfor %}
+</table>
 {% endblock %}

@@ -5,9 +5,8 @@ from schedules.models import CourseSchedule
 
 @login_required
 def student_course_schedule(request):
-    student = request.user.student
-    enrolled_courses = Enrollment.objects.filter(student=student).values_list("course", flat=True)
-    course_schedule = CourseSchedule.objects.filter(course_id__in=enrolled_courses)
+    student = request.user.student  
+    course_schedule = CourseSchedule.objects.filter(course__enrollments__student=student)
 
     context = {
         "course_schedule": course_schedule,
@@ -17,9 +16,9 @@ def student_course_schedule(request):
 @login_required
 def professor_course_schedule(request):
     professor = request.user.professor
-    courses_taught = CourseSchedule.objects.filter(professor=professor)
+    course_schedule = CourseSchedule.objects.filter(professor=professor)
 
     context = {
-        "course_schedule": courses_taught,
+        "course_schedule": course_schedule,
     }
     return render(request, "schedules/professors/course_schedule.html", context)
