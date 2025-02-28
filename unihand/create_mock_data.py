@@ -156,7 +156,8 @@ for schedule_data in mock_schedules:
                 "schedule_start": schedule_data["schedule_start"],
                 "schedule_end": schedule_data["schedule_end"],
                 "course_type": schedule_data["course_type"],
-                "created_by": schedule_data["created_by"]
+                "created_by": schedule_data["created_by"],
+                "recurrence_rule": schedule_data["recurrence_rule"],
             }
         )
         if created:

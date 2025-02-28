@@ -28,6 +28,29 @@ mock_grades = [
 ]
 
 mock_schedules = [
-    {"academic_year": "2024-2025", "course_code": "CS201", "professor_username": "mockprofessor", "is_scheduled": True, "is_online": False, "schedule_start": "2024-09-01T09:00:00Z", "schedule_end": "2024-09-01T10:30:00Z", "course_type": "Lecture", "created_by": "mockadmin"},
-    {"academic_year": "2024-2025", "course_code": "CS202", "professor_username": "mockprofessor", "is_scheduled": True, "is_online": False, "schedule_start": "2024-09-02T11:00:00Z", "schedule_end": "2024-09-02T12:30:00Z", "course_type": "Lecture", "created_by": "mockadmin"},
+    {
+        "academic_year": "2024-2025",
+        "course_code": "CS201",
+        "professor_username": "mockprofessor",
+        "is_scheduled": True,
+        "is_online": False,
+        "schedule_start": "2024-09-01T09:00:00Z",
+        "schedule_end": "2024-09-01T10:30:00Z",
+        "course_type": "Lecture",
+        "created_by": "mockadmin",
+        "recurrence_rule": "FREQ=WEEKLY;BYDAY=TU,TH;BYHOUR=9;BYMINUTE=0;BYSECOND=0"  # Every Tuesday and Thursday at 9 AM
+    },
+    {
+        "academic_year": "2024-2025",
+        "course_code": "CS202",
+        "professor_username": "mockprofessor",
+        "is_scheduled": True,
+        "is_online": False,
+        "schedule_start": "2024-09-02T11:00:00Z",
+        "schedule_end": "2024-09-02T12:30:00Z",
+        "course_type": "Lecture",
+        "created_by": "mockadmin",
+        "recurrence_rule": "FREQ=WEEKLY;BYDAY=MO,WE;BYHOUR=11;BYMINUTE=0;BYSECOND=0"  # Every Monday and Wednesday at 11 AM
+    },
 ]
+
