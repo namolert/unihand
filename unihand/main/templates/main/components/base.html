@@ -13,9 +13,40 @@
 
 <body class="{{ request.COOKIES.theme }}">
   {% include 'main/components/site_header.html' %}
-  {% block content %}{% endblock %}
+  <div class="container">
+    {% if request.user.is_authenticated and request.user.role == "Student" %}
+    <aside class="sidebar">
+        <section class="home-landing">
+            <h1 class="home-landing-text">Student Home</h1>
+        </section>
+        <ul>
+            <li><a href="{% url 'student_course_schedule' %}">Course Schedule</a></li>
+            <li><a href="{% url 'my_grades' %}">My Grades</a></li>
+            <li><a href="{% url 'appointments' %}">Appointments</a></li>
+            <li><a href="{% url 'todos' %}">To-Do List</a></li>
+            <li><a href="{% url 'enrolled_classes' %}">Enrolled Classes</a></li>
+        </ul>
+    </aside>
+    {% endif %}
+  
+    {% if request.user.is_authenticated and request.user.role == "Professor" %}
+    <aside class="sidebar">
+        <section class="home-landing">
+            <h1 class="home-landing-text">Professor Home</h1>
+        </section>
+        <ul>
+            <li><a href="{% url 'professor_course_schedule' %}">Course Schedule</a></li>
+            <li><a href="{% url 'view_grades_view' %}">View Grades</a></li>
+            <li><a href="{% url 'appointments' %}">Appointments</a></li>
+            <li><a href="{% url 'enrolled_students' %}">Enrolled Students</a></li>
+        </ul>
+    </aside>
+    {% endif %}
+    <main class="content">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
   {% include 'main/components/site_footer.html' %}
   <script src="{% static 'main/js/main.js' %}"></script>
 </body>
-
 </html>

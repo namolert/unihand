@@ -22,4 +22,4 @@ def student_home(request):
         "appointments": appointments,
         "todos": todos,
     }
-    return render(request, "students/home.html", context)
+    return render(request, "main/home.html", context)

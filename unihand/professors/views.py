@@ -21,4 +21,4 @@ def professor_home(request):
         "enrollments": enrollments,
         "appointments": appointments,
     }
-    return render(request, "professors/home.html", context)
+    return render(request, "main/home.html", context)
