@@ -2,7 +2,77 @@
 {% load static %}
 
 {% block content %}
-<section class="home-landing">
-    <h1 class="home-landing-text">Appointments Page</h1>
+<section class="appointments-page">
+    <h1 class="page-title">My Appointments</h1>
+
+    {% if request.user.role == "Student" %}
+    <table>
+        <thead>
+            <tr>
+                <th>Professor</th>
+                <th>Date & Time</th>
+                <th>Reason</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.professor.user.get_full_name }}</td>
+                <td>{{ appointment.date }}</td>
+                <td>{{ appointment.reason }}</td>
+                <td>{{ appointment.status }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No appointments found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'request_appointment' %}" class="btn-add-appointment">Request an Appointment</a>
+
+    {% elif request.user.role == "Professor" %}
+    <table>
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Date & Time</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.student.user.get_full_name }}</td>
+                <td>{{ appointment.date }}</td>
+                <td>{{ appointment.reason }}</td>
+                <td>{{ appointment.status }}</td>
+                <td>
+                    {% if appointment.status == "Pending" %}
+                        <form method="POST" action="{% url 'accept_appointment' appointment.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-accept">Accept</button>
+                        </form>
+                        <form method="POST" action="{% url 'decline_appointment' appointment.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-decline">Decline</button>
+                        </form>
+                    {% else %}
+                        {{ appointment.status }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No appointment requests found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
 </section>
+
 {% endblock %}
