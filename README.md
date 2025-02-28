@@ -30,7 +30,8 @@ UniHand is a webapp designed to make university life easier for the students, pr
 To install all dependencies at once, create a `requirements.txt` file with the following content
 
 ```
-TBA
+django-recurrence
+python-dateutil
 ```
 
 Then install everything with
