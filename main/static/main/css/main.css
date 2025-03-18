@@ -5,14 +5,12 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
-/* Container for sidebar and content */
-.container {
+/* .container {
     display: flex;
-    min-height: 100vh; /* Ensure full height */
-}
+    min-height: 100vh;
+} */
 
-/* Sidebar styling */
-.sidebar {
+/* .sidebar {
     width: 250px;
     background-color: #333;
     color: white;
@@ -24,7 +22,6 @@ html, body {
     overflow-y: auto;
 }
 
-/* Sidebar menu */
 .sidebar ul {
     list-style: none;
     padding: 0;
@@ -46,9 +43,8 @@ html, body {
     background-color: #555;
 }
 
-/* Content area */
 .content {
     flex-grow: 1;
     margin-left: 250px;
     padding: 20px;
-}
+} */
