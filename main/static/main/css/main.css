@@ -1,9 +1,9 @@
 /* Make body and html full height */
-html, body {
+/* html, body {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-}
+} */
 
 /* .container {
     display: flex;
