@@ -252,13 +252,3 @@ class EnrollingViewTest(TestCase):
         response = self.client.post(reverse("enrolling", args=[self.course.course_id]), {'student': self.student_profile.id})
         self.assertRedirects(response, reverse("enrolled_students"))
         self.assertEqual(Enrollment.objects.count(), 1)
-
-    # def test_enroll_student_in_course_already_enrolled(self):
-    #     self.client.login(username="stud1", password="password")
-    #     response = self.client.post(reverse("enrolling", kwargs={"course_id": self.course.course_id}), {
-    #         'student': self.student_profile.id,
-    #     })
-    #     self.assertEqual(response.status_code, 302)
-    #     self.assertRedirects(response, reverse("enrolled_students"))
-    #     messages = list(get_messages(response.wsgi_request))
-    #     self.assertEqual(str(messages[0]), "Student is already enrolled in this course.")
