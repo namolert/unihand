@@ -30,7 +30,7 @@
     {% endif %}
   
     {% if request.user.is_authenticated and request.user.role == "Professor" %}
-    <!-- <aside class="sidebar"> -->
+    <aside class="sidebar">
         <section class="home-landing">
             <h1 class="home-landing-text">Professor Home</h1>
         </section>
@@ -40,7 +40,7 @@
             <li><a href="{% url 'appointments' %}">Appointments</a></li>
             <li><a href="{% url 'enrolled_students' %}">Enrolled Students</a></li>
         </ul>
-    <!-- </aside> -->
+    </aside>
     {% endif %}
     <main class="content">
       {% block content %}{% endblock %}
