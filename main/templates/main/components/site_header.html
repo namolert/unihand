@@ -18,7 +18,7 @@
               <span>{{ user.student.student_id }}</span>  
             </a>
           </div>
-        {% elif user.role == 'Professor' %}
+        {% elif user.role == 'Professor' and user.professor %}
           <div class="site-header-item">
             <a href="{% url 'role_redirect' %}">
               <span>{{ user.professor.professor_id }}</span>  
