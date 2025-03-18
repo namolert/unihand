@@ -4,20 +4,31 @@ from django.contrib import messages
 from courses.models import Course
 from enrollments.models import Enrollment
 from .forms import EnrollmentForm
+from django.core.exceptions import ObjectDoesNotExist
 
 @login_required
 def enrolled_classes_view(request):
-    student = request.user.student
+    try:
+        student = request.user.student
+    except ObjectDoesNotExist:
+        messages.error(request, "You are not associated with any student profile.")
+        return redirect('some_error_page')
+
     enrolled_courses = Course.objects.filter(enrollments__student=student)
 
-    context={
+    context = {
         "enrolled_courses": enrolled_courses
     }
     return render(request, "enrollments/students/enrolled_classes.html", context)
 
 @login_required
 def enrolled_students_view(request):
-    professor = request.user.professor
+    try:
+        professor = request.user.professor
+    except ObjectDoesNotExist:
+        messages.error(request, "You are not associated with any professor profile.")
+        return redirect('some_error_page')
+
     courses_taught = professor.courses_taught.all()
 
     context = {
@@ -32,7 +43,7 @@ def enrolling_view(request, course_id):
 
     if course not in professor.courses_taught.all():
         messages.error(request, "You are not assigned to this course.")
-        return redirect("enrolled_students_view")
+        return redirect("enrolled_students")
 
     if request.method == "POST":
         form = EnrollmentForm(request.POST)
@@ -43,7 +54,7 @@ def enrolling_view(request, course_id):
                 messages.success(request, f"{student.user.get_full_name()} enrolled successfully!")
             else:
                 messages.warning(request, "Student is already enrolled in this course.")
-            return redirect("enrolled_students_view")
+            return redirect("enrolled_students")
     else:
         form = EnrollmentForm()
 
