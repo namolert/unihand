@@ -17,7 +17,7 @@
     <th>Recurrence</th>
   </tr>
   {% for schedule in course_schedule %}
-  <tr>
+  <tr class="schedule-row">
     <td>{{ schedule.course.course_name }}</td>
     <td>{{ schedule.professor.user.get_full_name }}</td>
     <td>{{ schedule.course_type }}</td>
@@ -39,8 +39,22 @@
       {% endif %}
     </td>
   </tr>
+  <tr class="appointments" style="display: none;">
+    <td colspan="6">
+      <strong>Appointments:</strong>
+      {% if schedule.appointments.all %}
+        <ul>
+          {% for appointment in schedule.appointments.all %}
+            <li>{{ appointment.professor.user.get_full_name }} - {{ appointment.appointment_time }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No appointments scheduled.</p>
+      {% endif %}
+    </td>
+  </tr>
   {% empty %}
-  <tr><td colspan="5">No schedules available</td></tr>
+  <tr><td colspan="6">No schedules available</td></tr>
   {% endfor %}
 </table>
 <script src="{% static 'schedules/toggle_appointments.js' %}"></script>
