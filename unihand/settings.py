@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-bibksv#i*kje-zzjzmoaj4=*vn@j@am*76n&#7+*x5h*)eez#x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["namolert.pythonanywhere.com"]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'namolert.pythonanywhere.com']
 
 
 # Application definition
