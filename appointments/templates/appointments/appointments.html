@@ -1,12 +1,18 @@
 {% extends 'main/components/base.html' %}
 {% load static %}
 
-{% block content %}
-<section class="appointments-page">
-    <h1 class="page-title">My Appointments</h1>
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/appointment.css' %}">
+{% endblock %}
 
-    {% if request.user.role == "Student" %}
-    <table>
+{% block content %}
+<section class="home-landing">
+    <h1 class="home-landing-text">My Appointments</h1>
+</section>
+
+{% if request.user.role == "Student" %}
+<div class="container-fluid mt-4">
+    <table class="appointment-table student">
         <thead>
             <tr>
                 <th>Professor</th>
@@ -30,10 +36,14 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'request_appointment' %}" class="btn-add-appointment">Schedule   an Appointment</a>
+    <div class="add-appointment">
+        <a href="{% url 'request_appointment' %}" class="btn-add-appointment">Schedule an Appointment</a>
+    </div>
+</div>
 
-    {% elif request.user.role == "Professor" %}
-    <table>
+{% elif request.user.role == "Professor" %}
+<div class="container-fluid mt-4">
+    <table class="appointment-table professor">
         <thead>
             <tr>
                 <th>Student</th>
@@ -52,14 +62,14 @@
                 <td>{{ appointment.status }}</td>
                 <td>
                     {% if appointment.status == "Pending" %}
-                        <form method="POST" action="{% url 'accept_appointment' appointment.id %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn-accept">Accept</button>
-                        </form>
-                        <form method="POST" action="{% url 'decline_appointment' appointment.id %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn-decline">Decline</button>
-                        </form>
+                    <form method="POST" action="{% url 'accept_appointment' appointment.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-accept">Accept</button>
+                    </form>
+                    <form method="POST" action="{% url 'decline_appointment' appointment.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-decline">Decline</button>
+                    </form>
                     {% else %}
                         {{ appointment.status }}
                     {% endif %}
@@ -73,6 +83,5 @@
         </tbody>
     </table>
     {% endif %}
-</section>
-
+</div>
 {% endblock %}

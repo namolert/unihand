@@ -1,24 +1,55 @@
-{% extends 'main/components/base.html' %}
-
-{% block site_title %}Login - {% endblock %}
 
 {% block content %}
-<section class="content-section content-section-single">
-  <div class="content-container content-container-narrow">
-    <h3 class="content-title">Login</h3>
-    <form action="{% url 'login' %}" method="POST">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <!-- {% if request.GET.next %}
-        <input type="hidden" name="next" value="{{ request.GET.next }}">
-      {% endif %} -->
-      <div class="form-field">
-        <button class="button button-primary" type="submit">Login</button>
-      </div>
-      <p>
-        <a href="{% url 'password_reset' %}">Forgot Password?</a>
-      </p>
-    </form>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/css/login.css' %}">
+
+<section class="login-section">
+  <div class="login-container">
+    <!-- Left side: Background and welcome text -->
+    <div class="login-left">
+      <h1>Welcome to UniHand</h1>
+      <p>Login to your account to continue.</p>
+    </div>
+
+    <!-- Right side: Form -->
+    <div class="login-right">
+      <h3>User Login</h3>
+
+      {% if form.errors %}
+        <div class="form-errors">
+          <ul>
+            {% for field in form %}
+              {% for error in field.errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        
+        <div class="form-field">
+          <label for="id_username">Username</label>
+          {{ form.username }}
+        </div>
+
+        <div class="form-field">
+          <label for="id_password">Password</label>
+          {{ form.password }}
+        </div>
+
+        {% if request.GET.next %}
+          <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
+
+        <div class="form-field">
+          <button class="button button-primary" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
 {% endblock %}

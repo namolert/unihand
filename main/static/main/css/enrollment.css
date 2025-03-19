@@ -1,0 +1,61 @@
+/* Styling for the Grades Table */
+.grades-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+    table-layout: fixed; /* Ensure the table stretches across the container */
+}
+  
+.grades-table th, .grades-table td {
+    padding: 5px;
+    text-align: left;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    height: 30px;
+}
+
+/* Adjust row height */
+.grades-table tr {
+    height: 30px; /* Set height for table rows */
+}
+  
+.grades-table th {
+    background-color: #47a86b;
+    color: #333;
+    font-weight: bold;
+}
+
+.grades-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+  
+.grades-table tr:hover {
+    background-color: #e9ecef;
+}
+
+.grades-table td {
+    color: #495057;
+}
+
+.grades-table td.text-center {
+    text-align: center;
+}
+
+/* Ensure the table stretches across the container */
+.container {
+    max-width: 95%;  /* Reducing it slightly for better responsiveness */
+    margin: auto;
+    padding: 20px;
+}
+
+.home-landing-text {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px; /* More spacing below the title */
+}

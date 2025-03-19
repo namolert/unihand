@@ -1,13 +1,17 @@
 {% extends 'main/components/base.html' %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/grades.css' %}">
+{% endblock %}
+
 {% block content %}
 <section class="home-landing">
   <h1 class="home-landing-text">My Grades</h1>
 </section>
 
-<div class="container mt-4">
-  <table class="table table-striped">
+<div class="container-fluid mt-4">
+  <table class="grades-table">
     <thead>
       <tr>
         <th>Course Code</th>

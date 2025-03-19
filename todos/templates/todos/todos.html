@@ -1,40 +1,54 @@
 {% extends 'main/components/base.html' %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/todo.css' %}">
+{% endblock %}
+
 {% block content %}
 <section class="home-landing">
-  <h1 class="home-landing-text">Todos Page</h1>
+  <h1 class="home-landing-text">ToDo Page</h1>
 </section>
-<form method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Add Task</button>
-</form>
-<table>
-  <tr>
-    <th>Task</th>
-    <th>Deadline</th>
-    <th>Status</th>
-    <th>Edit</th>
-  </tr>
-  {% for todo in todos %}
-  <tr>
-    <td>{{ todo.task_description }}</td>
-    <td>{{ todo.deadline }}</td>
-    <td>{{ todo.status }}</td>
-    <td>
-      <a href="{% url 'edit_todo' todo.id %}">Edit</a> |
-      <button onclick="confirmDelete('{{ todo.id }}')" 
-        style="color: red; border: none; background: none; cursor: pointer;">Delete
-      </button>
-    </td>
-  </tr>
-  {% empty %}
-  <tr>
-    <td colspan="4">No tasks added yet.</td>
-  </tr>
-  {% endfor %}
-</table>
+<div class="container-fluid mt-4">
+  <table class = "todo-list">
+    <tr>
+      <th>Task</th>
+      <th>Deadline</th>
+      <th>Status</th>
+      <th>Edit</th>
+    </tr>
+    {% for todo in todos %}
+    <tr>
+      <td>{{ todo.task_description }}</td>
+      <td>{{ todo.deadline }}</td>
+      <td>{{ todo.status }}</td>
+      <td>
+        <a class='edit' href="{% url 'edit_todo' todo.id %}">Edit</a> |
+        <button class='delete' onclick="confirmDelete('{{ todo.id }}')" >Delete</button>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="4">No tasks added yet.</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <div id="addTaskModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Add Task</h2>
+      <form class="todo-form" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="addTaskBtn" type="submit">Add Task</button>
+      </form>
+    </div>
+  </div>
+  <div class="add-task-container">
+    <button class="addTaskBtn_Outside" id="addTaskBtn_Outside">Add Task</button>
+  </div>
+</div>
 
 <!-- Delete Confirmation Modal -->
 <div id="deleteModal" class="modal">

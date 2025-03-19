@@ -1,6 +1,10 @@
 {% extends 'main/components/base.html' %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/enrollment.css' %}">
+{% endblock %}
+
 {% block content %}
 <section class="home-landing">
     <h1 class="home-landing-text">Enrolling Page</h1>

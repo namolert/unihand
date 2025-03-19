@@ -1,15 +1,24 @@
 {% extends 'main/components/base.html' %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/todo.css' %}">
+{% endblock %}
+
 {% block content %}
 <section class="home-landing">
-    <h1 class="home-landing-text">Todos Page</h1>
+    <h1 class="home-landing-text">ToDo Page</h1>
 </section>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Changes</button>
-</form>
-
-<a href="{% url 'todos' %}">Back to To-Do List</a>
+<div class="container-fluid mt-4">
+    <div id="edit-todo">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class = "saveChangesBtn">Save Changes</button>
+        </form>
+    </div>
+    <div id="back-todo-link">
+        <a href="{% url 'todos' %}">Back to To-Do List</a>
+    </div>
+</div>
 {% endblock %}

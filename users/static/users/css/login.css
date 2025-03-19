@@ -1,100 +1,155 @@
-/* Body styles with background image */
-/* General body styles with a single background image */
-body {
-  
-  background-size: cover; /* Cover the entire page with the image */
-  font-family: Arial, sans-serif;
-  color: #333;
+/* Full height for the page */
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  position: relative;
+  font-family: Arial, sans-serif;
 }
 
-/* Blurred overlay effect */
-body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: inherit; /* Inherit the background image */
-  filter: blur(8px); /* Apply blur effect */
-  opacity: 0.5; /* Set transparency for the blur effect */
-  transform: scale(1.1); /* Slightly scale up to prevent edges from being visible */
-  z-index: -1; /* Place the overlay beneath content */
+/* Gradient background for the entire login section */
+body {
+  background: linear-gradient(135deg, #6e7bff, #ac5cfc); /* Gradient colors */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the background covers the full viewport */
 }
 
-/* Main content container styling */
-.container {
-  position: relative; /* Ensure content appears above the blurred background */
-  z-index: 1;
+/* Center the login form */
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
 }
 
-
-/* Login container styling */
+/* Container for the form, ensuring the layout is well-spaced */
 .login-container {
-  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  max-width: 900px; /* Set max width */
+  border-radius: 12px; /* Rounded corners for the container */
 }
 
-/* Form styling */
-.form-label {
-  font-weight: bold;
+/* Left side: Background and welcome text */
+.login-left {
+  width: 50%;
+  background-color: #ffffff;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
 }
 
-.form-control {
-  border-radius: 5px;
+.login-left h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-/* Error message styling */
-.error-message {
-  color: red;
+.login-left p {
+  font-size: 18px;
+  color: #777;
+}
+
+/* Right side: Form styling */
+.login-right {
+  width: 50%;
+  background-color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.login-right h3 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form field styling */
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+}
+
+.form-field input:focus {
+  border-color: #6e7bff;
+  outline: none;
 }
 
 /* Button styling */
-.btn-primary {
+.button {
+  width: 100%;
+  padding: 14px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1.1rem;
-  transition: background-color 0.3s ease;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.btn-primary:hover {
+.button:hover {
   background-color: #0056b3;
 }
 
-.btn-secondary {
-  background-color: #6c757d;
-  color: white;
-  border: none;
-  border-radius: 5px;
+/* Error styling */
+.form-errors {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
   padding: 10px;
-  font-size: 1.1rem;
-  transition: background-color 0.3s ease;
+  border-radius: 4px;
+  margin-bottom: 20px;
 }
 
-.btn-secondary:hover {
-  background-color: #5a6268;
+.form-errors ul {
+  list-style-type: none;
+  padding-left: 0;
 }
 
-/* Margin utility for container positioning */
-.custom-margin {
-  margin-top: 100px;
+.form-errors li {
+  font-size: 14px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .login-container {
-      padding: 30px;
-      max-width: 90%;
+  .login-left, .login-right {
+      width: 100%;
+      padding: 20px;
+  }
+
+  .login-left h1 {
+      font-size: 28px;
+  }
+
+  .login-right h3 {
+      font-size: 24px;
   }
 }

@@ -1,13 +1,21 @@
 {% extends "main/components/base.html" %}
 {% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/appointment.css' %}">
+{% endblock %}
+
 
 {% block content %}
 <section class="home-landing">
     <h1 class="home-landing-text">Request an Appointment</h1>
 </section>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Request</button>
-</form>
+<div class="container-fluid mt-4">
+    <div class="request-appointment-form">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class = "requestBtn">Request</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
