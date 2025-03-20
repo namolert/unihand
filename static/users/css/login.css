@@ -1,0 +1,155 @@
+/* Full height for the page */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Gradient background for the entire login section */
+body {
+  background: linear-gradient(135deg, #6e7bff, #ac5cfc); /* Gradient colors */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the background covers the full viewport */
+}
+
+/* Center the login form */
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Container for the form, ensuring the layout is well-spaced */
+.login-container {
+  display: flex;
+  width: 100%;
+  max-width: 900px; /* Set max width */
+  border-radius: 12px; /* Rounded corners for the container */
+}
+
+/* Left side: Background and welcome text */
+.login-left {
+  width: 50%;
+  background-color: #ffffff;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.login-left h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.login-left p {
+  font-size: 18px;
+  color: #777;
+}
+
+/* Right side: Form styling */
+.login-right {
+  width: 50%;
+  background-color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.login-right h3 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form field styling */
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+}
+
+.form-field input:focus {
+  border-color: #6e7bff;
+  outline: none;
+}
+
+/* Button styling */
+.button {
+  width: 100%;
+  padding: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Error styling */
+.form-errors {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.form-errors ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.form-errors li {
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-left, .login-right {
+      width: 100%;
+      padding: 20px;
+  }
+
+  .login-left h1 {
+      font-size: 28px;
+  }
+
+  .login-right h3 {
+      font-size: 24px;
+  }
+}

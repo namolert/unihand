@@ -1,0 +1,70 @@
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+}
+
+.calendar-day {
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+}
+
+.calendar-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-time-slot {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 5px;
+    border-top: 1px solid #ddd;
+}
+
+.time {
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-right: 1px solid #ddd;
+}
+
+.calendar-cell {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+}
+
+.course-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #e6f7ff;
+    border: 1px solid #ddd;
+}
+
+.course-item:hover {
+    background-color: #cce6ff;
+}
+
+.appointment-details {
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.appointment-details ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.appointment-details li {
+    margin: 5px 0;
+}

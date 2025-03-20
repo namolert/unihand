@@ -1,0 +1,206 @@
+/* Ensuring content doesn't get pushed under the sidebar */
+.container {
+    max-width: 95%;  /* Reducing it slightly for better responsiveness */
+    margin: auto;
+    padding: 20px;  /* Remove the extra margin at the top */
+}
+
+/* Make sure the home-landing text (Todos page title) has proper spacing */
+.home-landing-text {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px; /* More spacing below the title */
+}
+
+/* For Student Table */
+table.appointment-table.student {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+    table-layout: fixed; /* Ensure proper table layout */
+    word-wrap: break-word; /* Break long words into multiple lines */
+    overflow-x: auto; 
+
+}
+
+table.appointment-table.student th, table.appointment-table.student td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table.appointment-table.student th {
+    background-color: #17808c;
+    color: #fff;
+    font-weight: bold;
+}
+
+table.appointment-table.student tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table.appointment-table.student tr:hover {
+    background-color: #e9ecef;
+}
+
+table.appointment-table.student td {
+    color: #495057;
+}
+
+/* For Professor Table */
+table.appointment-table.professor {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+    table-layout: fixed;
+    word-wrap: break-word; /* Break long words into multiple lines */
+    overflow-x: auto; 
+
+}
+
+table.appointment-table.professor th, table.appointment-table.professor td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table.appointment-table.professor th {
+    background-color: #17808c;
+    color: #fff;
+    font-weight: bold;
+}
+
+table.appointment-table.professor tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table.appointment-table.professor tr:hover {
+    background-color: #e9ecef;
+}
+
+table.appointment-table.professor td {
+    color: #495057;
+}
+
+/* Styling for the 'Schedule an Appointment' button */
+.btn-add-appointment {
+    background-color: #4CAF50;  /* Green background */
+    color: white;               /* White text */
+    font-size: 16px;
+    padding: 12px 20px;         /* Add padding to make the button larger */
+    border-radius: 8px;         /* Rounded corners for a modern look */
+    border: none;               /* Remove default border */
+    cursor: pointer;           /* Add pointer cursor to indicate it's clickable */
+    transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition */
+    text-align: center;         /* Center align text */
+    text-decoration: none;
+}
+
+/* Hover effect for the button */
+.btn-add-appointment:hover {
+    background-color: #45a049;  /* Slightly darker green on hover */
+    transform: translateY(-2px);  /* Slight lift effect */
+}
+
+/* Focus effect for better accessibility */
+.btn-add-appointment:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Focus shadow for accessibility */
+}
+
+/* Active effect for when the button is clicked */
+.btn-add-appointment:active {
+    transform: translateY(0);  /* Remove the lift effect when clicked */
+}
+
+.add-appointment {
+    display: flex;               /* Enable Flexbox */
+    justify-content: center;     /* Center horizontally */
+    align-items: center;         /* Center vertically */
+    margin-top: 20px;            /* Add some space from the content above */
+}
+
+/* Centering the form within the page */
+.request-appointment-form {
+    width: 100%;
+    max-width: 600px;          /* Maximum width for the form */
+    padding: 30px;
+    background-color: #fff;    /* White background for the form */
+    border-radius: 10px;       /* Rounded corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+    margin-top: 30px;          /* Add some space from the top */
+    display: flex;
+    flex-direction: column;    /* Stack the form elements */
+    gap: 20px;                 /* Space between elements */
+}
+
+/* Styling for the form inputs and labels */
+.request-appointment-form input, .request-appointment-form select, .request-appointment-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Adding focus effect for form elements */
+.request-appointment-form input:focus, 
+.request-appointment-form select:focus, 
+.request-appointment-form textarea:focus {
+    border-color: #17808c;  /* Change border color on focus */
+    outline: none;
+}
+
+/* Styling for the 'Request' button */
+.requestBtn {
+    background-color: #4CAF50;  /* Green background */
+    color: white;               /* White text */
+    font-size: 16px;
+    padding: 12px 20px;         /* Add padding to make the button larger */
+    border-radius: 8px;         /* Rounded corners for a modern look */
+    border: none;               /* Remove default border */
+    cursor: pointer;           /* Add pointer cursor to indicate it's clickable */
+    transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition */
+    text-align: center;         /* Center align text */
+}
+
+/* Hover effect for the button */
+.requestBtn:hover {
+    background-color: #45a049;  /* Slightly darker green on hover */
+    transform: translateY(-2px);  /* Slight lift effect */
+}
+
+/* Focus effect for better accessibility */
+.requestBtn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Focus shadow for accessibility */
+}
+
+/* Active effect for when the button is clicked */
+.requestBtn:active {
+    transform: translateY(0);  /* Remove the lift effect when clicked */
+}
+
+/* For responsiveness */
+@media (max-width: 768px) {
+    .container-fluid {
+        margin-left: 0;
+    }
+}
+
+/* For responsiveness */
+@media (max-width: 768px) {
+    .container-fluid {
+        margin-left: 0;
+    }
+}
