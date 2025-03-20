@@ -5,6 +5,7 @@
     padding: 20px;  /* Remove the extra margin at the top */
 }
 
+
 /* Make sure the home-landing text (Todos page title) has proper spacing */
 .home-landing-text {
     font-size: 32px;
@@ -189,6 +190,72 @@ table.appointment-table.professor td {
 /* Active effect for when the button is clicked */
 .requestBtn:active {
     transform: translateY(0);  /* Remove the lift effect when clicked */
+}
+
+.appointment-actions {
+    display: flex; /* Align buttons side by side */
+    gap: 10px; /* Space between the buttons */
+    justify-content: flex-start; /* Align them to the left */
+}
+
+/* Edit and Delete Buttons */
+table.appointment-table.professor .btn-accept, table.appointment-table.professor .btn-decline {
+    background-color: #4CAF50;  /* Green for Edit */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;  /* Rounded corners */
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+table.appointment-table.professor .btn-accept {
+    background-color: #4CAF50;  /* Green */
+}
+
+table.appointment-table.professor .btn-decline {
+    background-color: #f44336;  /* Red */
+}
+
+/* Hover Effects */
+table.appointment-table.professor .btn-accept:hover {
+    background-color: #45a049;  /* Darker green */
+    transform: translateY(-2px);  /* Slight lift effect */
+}
+
+table.appointment-table.professor .btn-decline:hover {
+    background-color: #e53935;  /* Darker red */
+    transform: translateY(-2px);  /* Slight lift effect */
+}
+
+/* Add a focus effect for accessibility */
+table.appointment-table.professor .btn-accept:focus, table.appointment-table.professor .btn-decline:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Sorting button styles */
+.sort-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect on sorting buttons */
+.sort-btn:hover {
+    transform: scale(1.2);
+}
+
+/* You can also style them to look like arrows, for example */
+.sort-btn::after {
+    content: '↕';  /* You can replace with any other icon or font-awesome */
+    font-size: 16px;
+    margin-left: 8px;
+
 }
 
 /* For responsiveness */
