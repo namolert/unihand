@@ -1,61 +1,68 @@
 {% extends 'main/components/base.html' %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/course_schedule.css' %}">
+{% endblock %}
+
 {% block content %}
 <section class="home-landing">
-    <h1 class="home-landing-text">Course Schedule Page</h1>
+    <h1 class="home-landing-text">Course Schedule</h1>
 </section>
-<label for="showAppointments">Show Appointments</label>
-<input type="checkbox" id="showAppointments" name="showAppointments" onclick="toggleAppointments()">
-<table>
-  <tr>
-    <th>Course</th>
-    <th>Professor</th>
-    <th>Type</th>
-    <th>Start</th>
-    <th>End</th>
-    <th>Recurrence</th>
-  </tr>
-  {% for schedule in course_schedule %}
-  <tr class="schedule-row">
-    <td>{{ schedule.course.course_name }}</td>
-    <td>{{ schedule.professor.user.get_full_name }}</td>
-    <td>{{ schedule.course_type }}</td>
-    <td>{{ schedule.schedule_start }}</td>
-    <td>{{ schedule.schedule_end }}</td>
-    <td>
-      {% if schedule.recurrence_rule %}
-        {% if schedule.get_recurring_schedule %}
-          <ul>
-            {% for occurrence in schedule.get_recurring_schedule %}
-              <li>{{ occurrence|date:"l, F j, Y at g:i A" }}</li>
+
+<div class="container-fluid m4">
+    <!-- Checkbox to show/hide appointments -->
+    <label for="showAppointments">Show Appointments</label>
+    <input type="checkbox" id="showAppointments" name="showAppointments" onclick="toggleAppointments()">
+
+    <div class="week-heading">
+        <div class="week-details">
+            <h5> Week: {{ start_of_week|date:"F j, Y, g:i A" }} - {{ end_of_week|date:"F j, Y, g:i A" }}</h5>
+        </div>
+        <div class="week-navigation">
+            <!-- Link for navigating to previous week -->
+            <a href="{% url 'student_course_schedule' %}?week_offset={{ week_offset|add:-1 }}"  class="week-link">Previous Week</a>
+            <!-- Link for navigating to next week -->
+            <a href="{% url 'student_course_schedule' %}?week_offset={{ week_offset|add:1 }}"  class="week-link">Next Week</a>
+        </div>
+    </div>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for time_slot in time_slots %}
+            <tr>
+                {{ day }}
+                <td>{{ time_slot }}</td>
+                {% for day in week_schedule %}
+                    <td class="empty-cell" id="cell-{{ day.day }}-{{ time_slot }}">
+                        {% for schedule in day.schedules %}
+                            {% if schedule.schedule_time|date:"H:i" == time_slot %}
+                                <a class="class-link" {% if schedule.course_type == "Appointment" %} data-appointment="true" {% endif %}>
+                                    <div class="class-info">
+                                        <strong>{{ schedule.course_name }}</strong><br>
+                                        {{ schedule.course_type }}
+                                    </div>
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                {% endfor %}
+            </tr>
             {% endfor %}
-          </ul>
-        {% else %}
-          <p>No future occurrences available.</p>
-        {% endif %}
-      {% else %}
-        <p>No recurrence rule set.</p>
-      {% endif %}
-    </td>
-  </tr>
-  <tr class="appointments" style="display: none;">
-    <td colspan="6">
-      <strong>Appointments:</strong>
-      {% if schedule.appointments.all %}
-        <ul>
-          {% for appointment in schedule.appointments.all %}
-            <li>{{ appointment.professor.user.get_full_name }} - {{ appointment.appointment_time }}</li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        <p>No appointments scheduled.</p>
-      {% endif %}
-    </td>
-  </tr>
-  {% empty %}
-  <tr><td colspan="6">No schedules available</td></tr>
-  {% endfor %}
-</table>
+        </tbody>
+    </table>
+</div>
 <script src="{% static 'schedules/toggle_appointments.js' %}"></script>
 {% endblock %}

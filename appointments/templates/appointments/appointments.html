@@ -15,17 +15,17 @@
     <table class="appointment-table student">
         <thead>
             <tr>
-                <th>Professor</th>
-                <th>Date & Time</th>
-                <th>Reason</th>
-                <th>Status</th>
+                <th>Professor <button class="sort-btn" data-column="professor">^</button></th>
+                <th>Date & Time <button class="sort-btn" data-column="date"></button></th>
+                <th>Reason <button class="sort-btn" data-column="reason"></button></th>
+                <th>Status <button class="sort-btn" data-column="status"></button></th>
             </tr>
         </thead>
         <tbody>
             {% for appointment in appointments %}
             <tr>
                 <td>{{ appointment.professor.user.get_full_name }}</td>
-                <td>{{ appointment.date }}</td>
+                <td>{{ appointment.date|date:"F j, Y, g:i A" }}</td>
                 <td>{{ appointment.reason }}</td>
                 <td>{{ appointment.status }}</td>
             </tr>
@@ -46,10 +46,10 @@
     <table class="appointment-table professor">
         <thead>
             <tr>
-                <th>Student</th>
-                <th>Date & Time</th>
-                <th>Reason</th>
-                <th>Status</th>
+                <th>Student <button class="sort-btn" data-column="student">^</button></th>
+                <th>Date & Time <button class="sort-btn" data-column="date">↕</button></th>
+                <th>Reason <button class="sort-btn" data-column="reason">↕</button></th>
+                <th>Status <button class="sort-btn" data-column="status">↕</button></th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -57,19 +57,21 @@
             {% for appointment in appointments %}
             <tr>
                 <td>{{ appointment.student.user.get_full_name }}</td>
-                <td>{{ appointment.date }}</td>
+                <td>{{ appointment.date | date:"F j, Y, g:i A" }}</td>
                 <td>{{ appointment.reason }}</td>
                 <td>{{ appointment.status }}</td>
                 <td>
-                    {% if appointment.status == "Pending" %}
-                    <form method="POST" action="{% url 'accept_appointment' appointment.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="btn-accept">Accept</button>
-                    </form>
-                    <form method="POST" action="{% url 'decline_appointment' appointment.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="btn-decline">Decline</button>
-                    </form>
+                    <div class="appointment-actions">
+                        {% if appointment.status == "Pending" %}
+                        <form method="POST" action="{% url 'accept_appointment' appointment.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-accept">Accept</button>
+                        </form>
+                        <form method="POST" action="{% url 'decline_appointment' appointment.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-decline">Decline</button>
+                        </form>
+                    </div>
                     {% else %}
                         {{ appointment.status }}
                     {% endif %}
@@ -84,4 +86,5 @@
     </table>
     {% endif %}
 </div>
+<script src="{% static 'appointments/appointments.js' %}"></script>
 {% endblock %}

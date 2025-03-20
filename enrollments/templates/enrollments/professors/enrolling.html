@@ -7,15 +7,19 @@
 
 {% block content %}
 <section class="home-landing">
-    <h1 class="home-landing-text">Enrolling Page</h1>
+    <h1 class="home-landing-text">Enroll Student</h1>
 </section>
-<section class="enroll-student">
-    <h1>Enroll Student in {{ course.course_code }} - {{ course.course_name }}</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn-submit">Enroll</button>
-    </form>
-    <a href="{% url 'enrolled_students' %}" class="btn-back">Back to Courses</a>
-</section>
+<div class="container-fluid mt-4">
+    <div class="enroll-student">
+        <h1>{{ course.course_name }} - {{ course.course_code }}</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-submit">Enroll</button>
+        </form>
+        <div id="back-courses-link">
+            <a href="{% url 'enrolled_students' %}" class="btn-back">Back to Courses</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

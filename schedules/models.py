@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 import pytz
 
 class CourseSchedule(models.Model):
+    id = models.AutoField(primary_key=True)  # Or use `CharField` or another field type if needed 
     academic_year = models.CharField(max_length=10)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="schedules")
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE, related_name="schedules", null=True, blank=True)

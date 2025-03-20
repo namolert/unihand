@@ -20,10 +20,10 @@
     {% for todo in todos %}
     <tr>
       <td>{{ todo.task_description }}</td>
-      <td>{{ todo.deadline }}</td>
+      <td>{{ todo.deadline|date:"F j, Y, g:i A" }}</td>
       <td>{{ todo.status }}</td>
       <td>
-        <a class='edit' href="{% url 'edit_todo' todo.id %}">Edit</a> |
+        <a class='edit' href="{% url 'edit_todo' todo.id %}">Edit</a>
         <button class='delete' onclick="confirmDelete('{{ todo.id }}')" >Delete</button>
       </td>
     </tr>

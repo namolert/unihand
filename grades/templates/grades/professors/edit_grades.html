@@ -1,0 +1,30 @@
+{% extends 'main/components/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/grades.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="home-landing">
+    <h1 class="home-landing-text">Edit Grade for {{ grade.student.user.get_full_name }}</h1>
+</section>
+
+<div class="container-fluid mt-4">
+    <div class="edit-grade">
+        <form method="POST">
+            {% csrf_token %}
+            <label for="grade">Grade</label>
+            <input type="text" id="grade" name="grade" value="{{ grade.grade }}" required>
+    
+            <label for="comments">Comments</label>
+            <textarea id="comments" name="comments" rows="4" required>{{ grade.comments }}</textarea>
+
+            <div class="back-todo-link">
+                <button type="submit">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

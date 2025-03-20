@@ -43,11 +43,153 @@
     text-align: center;
 }
 
+.grades-table td a.editGradeBtn {
+    text-align: center;
+}
+
+.editGradeBtn {
+    background-color: #4CAF50;  /* Green for Edit */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;  /* Rounded corners */
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+}
+
+/* Hover Effects */
+.editGradeBtn:hover {
+    background-color: #45a049;  /* Darker green */
+    transform: translateY(-2px);  /* Slight lift effect */
+}
+
+/* Add a focus effect for accessibility */
+.editGradeBtn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.edit-grade {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.edit-grade label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.edit-grade input[type="text"],
+.edit-grade textarea {
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.edit-grade textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+.edit-grade button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-grade button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.edit-grade button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
 /* Ensure the table stretches across the container */
 .container {
     max-width: 95%;  /* Reducing it slightly for better responsiveness */
     margin: auto;
     padding: 20px;
+}
+
+.view-student-grades {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column;
+    width: 100%; /* Ensures the container takes up full width */
+    max-width: 600px; /* Limits the width for better look */
+    margin: 0 auto; /* Center the container */
+}
+
+.choose-course {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;           /* Restricting the width */
+    padding: 20px;
+    background-color: #fff;     /* Background color for better visibility */
+    border-radius: 8px;         /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  /* Adding a shadow for depth */
+}
+
+#course-select {
+    font-size: 16px;
+    padding: 12px;
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+#course_select:focus {
+    border-color: #17808c;
+    background-color: #e9f4f4;
+    outline: none;
+}
+
+/* Label Styling */
+label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* For when content is loaded (after course selection) */
+.grades-table {
+    margin-top: 30px; /* Give space between dropdown and table */
+}
+
+/* Optionally, add a padding to the entire container if necessary */
+.container-fluid {
+    padding: 0 20px; /* Add padding to the left and right for inner spacing */
 }
 
 .home-landing-text {

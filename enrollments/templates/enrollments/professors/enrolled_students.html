@@ -5,35 +5,37 @@
     <link rel="stylesheet" href="{% static 'main/css/enrollment.css' %}">
 {% endblock %}
 
-
 {% block content %}
 <section class="home-landing">
-  <h1 class="home-landing-text">Enrolled Students Page</h1>
+  <h1 class="home-landing-text">Enrolled Students</h1>
 </section>
-<section class="professor-enrollments">
-  {% for course in courses_taught %}
-      <h2>{{ course.course_code }} - {{ course.course_name }}</h2>
-      <a href="{% url 'enrolling' course.course_id %}" class="btn-add">Enroll Student</a>
-      <table>
-          <thead>
-              <tr>
-                  <th>Student Name</th>
-                  <th>Email</th>
-              </tr>
-          </thead>
-          <tbody>
-              {% for enrollment in course.enrollments.all %}
-              <tr>
-                  <td>{{ enrollment.student.user.get_full_name }}</td>
-                  <td>{{ enrollment.student.user.email }}</td>
-              </tr>
-              {% empty %}
-              <tr>
-                  <td colspan="2">No students enrolled in this course.</td>
-              </tr>
-              {% endfor %}
-          </tbody>
-      </table>
-  {% endfor %}
-</section>
+
+<div class="container-fluid mt-4">
+    {% for course in courses_taught %}
+        <div class="course-section">
+            <h2> {{ course.course_code }} - {{ course.course_name }} </h2>
+            <a href="{% url 'enrolling' course.course_id %}" class="btn-add">Enroll Student</a>
+            <table class="grades-table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for enrollment in course.enrollments.all %}
+                    <tr>
+                        <td>{{ enrollment.student.user.get_full_name }}</td>
+                        <td>{{ enrollment.student.user.email }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="2">No students enrolled in this course.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'main/components/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/course_schedule.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="home-landing">
+    <h1 class="home-landing-text">Edit Class Schedule for {{ schedule.course.course_name }}</h1>
+</section>
+
+<div class="container-fluid mt-4">
+    <div class="edit-class-form">
+        <form method="POST">
+            {% csrf_token %}
+            <!-- Display the current course name and professor -->
+
+            <div class="form-row">
+                <div class="form-group form-group-new-time">
+                    <label for="course_name">Course Name</label>
+                    <input type="text" id="course_name" name="course_name" value="{{ schedule.course.course_name }}" class="form-control" readonly>
+                </div>
+            
+                <div class="form-group form-group-new-time">
+                    <label for="professor">Professor Name</label>
+                    <input type="text" id="professor" name="professor" value="{{ schedule.professor.user.get_full_name }}" class="form-control" readonly>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group form-group-new-time">
+                    <label for="current_start_time">Current Start Time</label>
+                    <input type="text" id="current_start_time" name="current_start_time" 
+                    value="{{ schedule.schedule_start|date:"Y-m-d H:i" }}" class="form-control" readonly>
+                </div>
+            
+                <div class="form-group form-group-new-time">
+                    <label for="current_end_time">Current End Time</label>
+                    <input type="text" id="current_end_time" name="current_end_time" 
+                    value="{{ schedule.schedule_end|date:"Y-m-d H:i" }}" class="form-control" readonly>
+                </div>
+            </div>
+
+            <!-- Input for new start and end times -->
+            <div class="form-group">
+                <label for="new_start_time">New Start Time</label>
+                <input type="datetime-local" id="new_start_time" name="new_start_time" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="new_end_time">New End Time</label>
+                <input type="datetime-local" id="new_end_time" name="new_end_time" class="form-control" required>
+            </div>
+
+            <!-- Save Changes Button -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

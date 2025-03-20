@@ -1,8 +1,8 @@
 {% load static %}
 <header class="site-header">
   <div class="site-header-item">
-    <a class="site-header-brand" href="{% url 'role_redirect' %}">
-      <span>UniHand</span>
+    <a class="site-header-brand" href="{% url 'role_redirect' %}" style="font-size: 1.8rem; font-weight: bold; color: black; text-decoration: none;">
+      🌍 UniHand
     </a>
   </div>
   <div class="site-header-menu">
@@ -33,12 +33,157 @@
           </button>
         </form>
       </div>
-    {% else %}
-      <div class="site-header-item">
-        <a href="{% url 'login' %}">
-          <span>Login</span>
-        </a>
-      </div>
     {% endif %}
   </div>
 </header>
+
+{% block content %}
+{% if request.resolver_match.url_name == 'home' %}
+<div class="home-container">
+
+  <!-- HERO SECTION -->
+  <section class="full-page-section">
+    <h1>Welcome to <span class="highlight">UniHand</span></h1>
+    <p class="subtext">Your Smart University Companion</p>
+    <p class="description">Enhancing productivity for Students, Professors, and University Management.</p>
+    <br>
+    <a href="{% url 'login' %}" class="cta-button">🚀 Log in</a>
+  </section>
+
+  <!-- WHY CHOOSE UNIHAND -->
+  <section class="content-section">
+    <h2>Why Choose UniHand?</h2>
+    <div class="text-box">
+      <p>✅ <strong>Seamless Course & Enrollment Management</strong></p>
+      <p>✅ <strong>Smart Class Scheduling</strong> for Students & Professors</p>
+      <p>✅ <strong>Real-Time Grade Viewing & Publishing</strong></p>
+      <p>✅ <strong>Personalized To-Do Lists</strong> for Student Productivity</p>
+      <p>✅ <strong>Easy Appointment Scheduling</strong> with Professors</p>
+      <p>✅ <strong>Secure Role-Based Access</strong> for Different Users</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="content-section light-bg">
+    <h2>How UniHand Works?</h2>
+    <div class="text-box">
+      <p>📘 <strong>Students:</strong> View enrolled courses, track deadlines, and book appointments.</p>
+      <p>👨‍🏫 <strong>Professors:</strong> Manage course enrollments, schedule classes, and update grades.</p>
+      <p>🏛 <strong>Admins:</strong> Oversee academic operations and manage university records.</p>
+    </div>
+  </section>
+
+  <!-- PROJECT FEATURES -->
+  <section class="content-section">
+    <h2>UniHand Features</h2>
+    <div class="text-box">
+      <p>📌 <strong>Secure Authentication:</strong> Role-based access ensures only authorized users can access specific features.</p>
+      <p>📌 <strong>Data Encryption:</strong> Ensures protection of user credentials and academic data.</p>
+      <p>📌 <strong>Responsive Design:</strong> Works seamlessly on desktop and mobile devices.</p>
+      <p>📌 <strong>Centralized Communication:</strong> Reduces administrative overhead by integrating messaging and appointment scheduling.</p>
+      <p>📌 <strong>To-Do Lists & Productivity Tools:</strong> Students can manage assignments, tasks, and deadlines in one place.</p>
+    </div>
+  </section>
+
+  <!-- SYSTEM OVERVIEW -->
+  <section class="content-section light-bg">
+    <h2>System Overview</h2>
+    <div class="text-box">
+      <p>🔹 <strong>Course & Enrollment Management:</strong> Admins manage course creation while students enroll easily.</p>
+      <p>🔹 <strong>Class Scheduling:</strong> Professors schedule and modify class times, and students can view their updated schedules.</p>
+      <p>🔹 <strong>Grade Management:</strong> Students can access real-time grades, while professors can publish and update them.</p>
+      <p>🔹 <strong>Appointments:</strong> Students and professors can schedule 1-on-1 academic discussions.</p>
+      <p>🔹 <strong>Performance & Security:</strong> High-performance architecture ensures smooth operation even with multiple users.</p>
+    </div>
+  </section>
+
+</div>
+{% endif %}
+{% endblock %}
+
+<!-- ADD STYLES THAT ONLY APPLY TO THIS PAGE -->
+{% if request.resolver_match.url_name == 'home' %}
+<style>
+  .home-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .full-page-section {
+    background: linear-gradient(to right, #004aad, #6a11cb);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    width: 100%;
+  }
+
+  .highlight {
+    color: #ffc107;
+  }
+
+  .subtext {
+    font-size: 1.5rem;
+    opacity: 0.9;
+  }
+
+  .description {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: auto;
+    opacity: 0.8;
+  }
+
+  .cta-button {
+    background: #ffc107;
+    color: black;
+    padding: 15px 30px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+  .content-section {
+    text-align: center;
+    padding: 60px 20px;
+    width: 100%;
+  }
+
+  .light-bg {
+    background: #f8f9fa;
+  }
+
+  .text-box {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.3rem;
+    line-height: 1.6;
+  }
+
+  /* Fix blank space issue */
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .content-section:last-of-type {
+    margin-bottom: 0 !important;
+    padding-bottom: 20px !important;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: auto !important; /* Prevents forced height */
+    margin-top: 0 !important; /* Remove extra spacing */
+    padding-bottom: 0 !important;
+}
+</style>
+{% endif %}
