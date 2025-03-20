@@ -16,6 +16,7 @@ UniHand is a webapp designed to make university life easier for the students, pr
 - [Configuration](#configuration)
 - [Features](#features)
 - [API Endpoints](#api-endpoints)
+- [Deployment](#deployment)
 
 ## Installation
 
@@ -41,14 +42,6 @@ pip install -r requirements.txt
 ```
 
 ## Configuration
-
-### Configure Environment Variables
-
-Create a .env file in the root directory and add environment variables:
-
-```
-TBA
-```
 
 ### Set Up the Database
 
@@ -109,7 +102,7 @@ You can modify mock data in `mock_data.py`
 
 - **Backend:** Django, Django Rest Framework
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap
-- **Database:** SQLite (for development), PostgreSQL (for production)
+- **Database:** SQLite (for development, production)
 - **Authentication:** Django's built-in system
 - **API:** Django Rest Framework (DRF)
 
@@ -124,19 +117,16 @@ You can modify mock data in `mock_data.py`
 
 - Students: View enrolled courses effortlessly.
 - Professors: Enroll/remove students in courses as needed.
-- Admins: Create, modify, and delete course records.
 
 ### Class Scheduling (Keeps Schedules Organized)
 
 - Students: Access up-to-date class timetables.
 - Professors: Modify schedules when necessary.
-- Admins: Create/delete schedules for effective time management.
 
 ### Grade Management (Enhances Transparency & Accessibility)
 
 - Students: View grades in real-time.
 - Professors: Input and update student grades easily.
-- Admins: Modify grades for corrections when required.
 
 ### To-Do List (Students Only) (Improves Organization & Productivity)
 
@@ -145,3 +135,7 @@ You can modify mock data in `mock_data.py`
 ### Appointments (Students & Professors) (Streamlines Communication)
 
 - Enables scheduling/cancelling of meetings for academic discussions.
+
+## Deployment
+
+The UniHand web application is publicly accessible at: [UniHand](namolert.pythonanywhere.com)
