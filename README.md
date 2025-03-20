@@ -68,8 +68,7 @@ Visit http://127.0.0.1:8000/ in your browser to access the application.
 
 ## Mock Data
 
-This project includes scripts to **create** and **delete** mock data for testing.  
-The mock data includes **Users, Students, Professors, and Programs**.
+This project includes scripts to **create** and **delete** mock data for testing.
 
 ### How to Use
 
