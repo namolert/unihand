@@ -17,8 +17,8 @@ from mock_data import mock_users, mock_programs, mock_courses, mock_enrollments,
 # Mock Programs
 for program_data in mock_programs:
     program, created = Program.objects.get_or_create(
-        program_code=program_data["program_code"],
-        defaults={"program_name": program_data["program_name"]}
+        program_code = program_data["program_code"],
+        defaults = {"program_name": program_data["program_name"]}
     )
     if created:
         print(f"Program created: {program.program_name}")
@@ -46,13 +46,11 @@ for user_data in mock_users:
 
     if user_data["role"] == "Student":
         # Select CS101 program for this mock user
-        program_code = Program.objects.filter(program_code="CS101").first()
-
         student, student_created = Student.objects.get_or_create(
-            user=user,
+            user = user,
             defaults={
                 "student_id": f"{user.id}{user.last_name[0].upper() if user.last_name else 'X'}",
-                "program_code": program_code,
+                "program_code": Program.objects.filter(program_code = user_data["program_code"]).first(),
                 "gpa": 3.5,
                 "status": "ResultAwaiting"
             }
@@ -62,8 +60,8 @@ for user_data in mock_users:
 
     elif user_data["role"] == "Professor":
         professor, prof_created = Professor.objects.get_or_create(
-            user=user,
-            defaults={
+            user = user,
+            defaults = {
                 "professor_id": f"P{user.id}",
                 "department": "Computer Science"
             }
@@ -91,20 +89,13 @@ for course_data in mock_courses:
         else:
             print(f"Course {course.course_name} already exists.")
 
-# Assign Professor to the Course
-professor = Professor.objects.filter(user__username="mockprofessor").first()
-if professor:
-    course_codes = ["CS201", "CS202"]
-    
-    for course_code in course_codes:
-        course = Course.objects.filter(course_code=course_code).first()
-        if course:
-            course.professors.add(professor)
-            print(f"Assigned {professor.user.first_name} {professor.user.last_name} to {course.course_name}")
-        else:
-            print(f"Course {course_code} not found.")
-else:
-    print("Mock professor not found.")
+    # Assign Professor to the Course
+    professor = Professor.objects.filter(user__username = course_data['professor_username']).first()
+    if course:
+        course.professors.add(professor)
+        print(f"Assigned {professor.user.first_name} {professor.user.last_name} to {course.course_name}")
+    else:
+        print(f"Course {course_data['course_code']} not found.")
 
 # Mock Enrollments
 for enrollment_data in mock_enrollments:

@@ -1,7 +1,7 @@
 mock_programs = [
     {"program_code": "MECH101", "program_name": "Mechanical Engineering"},
     {"program_code": "LAW101", "program_name": "Law"},
-    {"program_code": "FIN101", "program_name": "Finance"},
+    {"program_code": "FIN101", "program_name": "MSc Finance"},
     {"program_code": "DS101", "program_name": "Data Science"},
     {"program_code": "CS101", "program_name": "Computer Science"},
 ]
@@ -14,6 +14,7 @@ mock_users = [
         "role": "Student",
         "first_name": "Sundaresh",
         "last_name": "Bafna",
+        "program_code": "MECH101"
     },
     {
         "username": "profpatrick",
@@ -22,6 +23,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Patrick",
         "last_name": "Harkness",
+        "program_code": "MECH101"
     },
     {
         "username": "profstuart",
@@ -30,6 +32,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Stuart",
         "last_name": "Grey",
+        "program_code": "MECH101"
     },
     {
         "username": "profdezong",
@@ -38,6 +41,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Dezong",
         "last_name": "Zhao",
+        "program_code": "MECH101"
     },
     {
         "username": "profsmith",
@@ -46,6 +50,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "John",
         "last_name": "Smith",
+        "program_code": "MECH101"
     },
     {
         "username": "prem",
@@ -54,6 +59,7 @@ mock_users = [
         "role": "Student",
         "first_name": "Prem",
         "last_name": "Thalapathy",
+        "program_code": "LAW101"
     },
     {
         "username": "drjames",
@@ -62,6 +68,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "James",
         "last_name": "Devaney",
+        "program_code": "LAW101"
     },
     {
         "username": "profkonstantinos",
@@ -70,6 +77,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Konstantinos",
         "last_name": "Sergakis",
+        "program_code": "LAW101"
     },
     {
         "username": "drzinian",
@@ -78,6 +86,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Zinian",
         "last_name": "Zhang",
+        "program_code": "LAW101"
     },
     {
         "username": "shruthi",
@@ -86,6 +95,7 @@ mock_users = [
         "role": "Student",
         "first_name": "Shruthi",
         "last_name": "Unknown",
+        "program_code": "FIN101"
     },
     {
         "username": "profbart",
@@ -94,6 +104,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Bart",
         "last_name": "Taub",
+        "program_code": "FIN101"
     },
     {
         "username": "profcarsten",
@@ -102,6 +113,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Carsten",
         "last_name": "Sprenger",
+        "program_code": "FIN101"
     },
     {
         "username": "profzafer",
@@ -110,6 +122,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Zafer",
         "last_name": "Kanik",
+        "program_code": "FIN101"
     },
     {
         "username": "adhi",
@@ -118,6 +131,7 @@ mock_users = [
         "role": "Student",
         "first_name": "Adithyan",
         "last_name": "Annadurai",
+        "program_code": "DS101"
     },
     {
         "username": "profnikela",
@@ -126,6 +140,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Nikela",
         "last_name": "Papadopoulou",
+        "program_code": "DS101"
     },
     {
         "username": "profemma",
@@ -134,6 +149,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Emma",
         "last_name": "Li",
+        "program_code": "DS101"
     },
     {
         "username": "profjoemon",
@@ -142,6 +158,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Joemon",
         "last_name": "Jose",
+        "program_code": "DS101"
     },
     {
         "username": "profrichard",
@@ -150,6 +167,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Richard",
         "last_name": "McCreadie",
+        "program_code": "DS101"
     },
     {
         "username": "profsean",
@@ -158,6 +176,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Sean",
         "last_name": "MacAvaney",
+        "program_code": "DS101"
     },
     {
         "username": "profkevin",
@@ -166,6 +185,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Kevin",
         "last_name": "Bryson",
+        "program_code": "DS101"
     },
     {
         "username": "mockstudent",
@@ -174,6 +194,7 @@ mock_users = [
         "role": "Student",
         "first_name": "John",
         "last_name": "Doe",
+        "program_code": "CS101"
     },
     {
         "username": "mockprofessor",
@@ -182,6 +203,7 @@ mock_users = [
         "role": "Professor",
         "first_name": "Alice",
         "last_name": "Smith",
+        "program_code": "CS101"
     },
     {
         "username": "mockadmin",
@@ -202,6 +224,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profpatrick",   
     },
     {
         "course_code": "IED102",
@@ -211,6 +234,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profstuart",
     },
     {
         "course_code": "AVG103",
@@ -220,6 +244,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profdezong",
     },
     {
         "course_code": "ATE104",
@@ -229,6 +254,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profsmith",
     },
     {
         "course_code": "ESM105",
@@ -238,6 +264,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profsmith",
     },
     {
         "course_code": "IIL101",
@@ -247,6 +274,7 @@ mock_courses = [
         "course_type": "Seminar",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "drjames",
     },
     {
         "course_code": "ICM102",
@@ -256,6 +284,7 @@ mock_courses = [
         "course_type": "Seminar",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profkonstantinos",
     },
     {
         "course_code": "IIL103",
@@ -265,6 +294,7 @@ mock_courses = [
         "course_type": "Seminar",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "drjames",
     },
     {
         "course_code": "EFM101",
@@ -274,6 +304,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profbart",
     },
     {
         "course_code": "CFI102",
@@ -283,6 +314,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profcarsten",
     },
     {
         "course_code": "MBF103",
@@ -292,6 +324,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profzafer",
     },
     {
         "course_code": "CSF101",
@@ -301,6 +334,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profemma",
     },
     {
         "course_code": "WS102",
@@ -310,6 +344,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profjoemon",
     },
     {
         "course_code": "BD103",
@@ -319,6 +354,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profrichard",
     },
     {
         "course_code": "TD104",
@@ -328,6 +364,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profsean",
     },
     {
         "course_code": "IT105",
@@ -337,6 +374,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profnikela",
     },
     {
         "course_code": "DL106",
@@ -346,6 +384,7 @@ mock_courses = [
         "course_type": "Lecture",
         "credits": 3,
         "academic_year_added": 2025,
+        "professor_username": "profkevin",
     },
     {
         "course_code": "CS201",
@@ -355,6 +394,7 @@ mock_courses = [
         "course_type": "Mandatory",
         "credits": 3,
         "academic_year_added": 2024,
+        "professor_username": "mockprofessor"
     },
     {
         "course_code": "CS202",
@@ -364,6 +404,7 @@ mock_courses = [
         "course_type": "Mandatory",
         "credits": 4,
         "academic_year_added": 2024,
+        "professor_username": "mockprofessor"
     },
 ]
 
@@ -523,13 +564,6 @@ mock_grades = [
         "professor_username": "profsean",
         "grade": "A",
         "comments": "Excellent text data analysis.",
-    },
-    {
-        "student_username": "adhi",
-        "course_code": "IT105",
-        "professor_username": "profnikela",
-        "grade": "B+",
-        "comments": "Good understanding of Internet Technology.",
     },
     {
         "student_username": "adhi",
