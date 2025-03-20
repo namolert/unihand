@@ -1,0 +1,199 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    
+}
+
+.container {
+    max-width: 95%;  /* Reducing it slightly for better responsiveness */
+    margin: auto;
+    padding: 10px;  /* Remove the extra margin at the top */
+    background-color: white;
+}
+
+/* Schedule Table */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0px 0;
+    table-layout: fixed;
+}
+
+.class-info {
+    background-color: lightblue;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.class-link {
+    text-decoration: None;
+}
+
+/* Hover effect */
+.class-info:hover {
+    background-color: lightgreen;
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.schedule-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.schedule-table td {
+    background-color: #f2f2f2;
+}
+
+.schedule-table td.empty {
+    background-color: white;
+}
+
+/* Week Heading Section */
+.week-heading {
+    display: flex;
+    justify-content: space-between;  /* Align the elements on opposite sides */
+    align-items: center;             /* Center them vertically */
+    margin: 0;                       /* Remove the default margin */
+}
+
+.week-details {
+    margin: 0; 
+    /* This section is for the week details on the left */
+    font-size: 18px;
+}
+
+.week-navigation {
+    /* This section is for the navigation links on the right */
+    display: flex;
+    gap: 20px;  /* Add space between the links */
+}
+
+.week-link {
+    font-size: 14px;                 /* Slightly smaller font size */
+    text-decoration: none;
+    color: #007bff;
+    margin: 0;
+}
+
+.week-link:hover {
+    color: #0056b3;
+}
+
+/* Container */
+.container-fluid {
+    padding: 0 20px; /* Add padding to the left and right for inner spacing */
+}
+
+.home-landing-text {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px; /* More spacing below the title */
+}
+
+/* Container */
+.container-fluid {
+    margin: 30px auto;
+}
+
+/* Form Styling */
+.edit-class-form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Form Inputs */
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    background-color: #ffffff;
+}
+
+/* Button */
+.btn {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Read-only Inputs */
+input[readonly] {
+    background-color: #e9ecef;
+}
+
+/* Make form fields appear side by side */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Form Group for New Times */
+.form-group-new-time {
+    width: 48%;  /* Make each time input 48% width */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-landing-text {
+        font-size: 28px;
+    }
+
+    .edit-class-form {
+        padding: 30px;
+    }
+
+    /* Adjust form layout for small screens */
+    .form-row {
+        flex-direction: column; /* Stack fields vertically */
+    }
+
+    .form-group-new-time {
+        width: 100%; /* Full width for new time inputs on mobile */
+    }
+}

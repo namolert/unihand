@@ -1,3 +1,53 @@
+/* Center content and add padding to the container */
+.container {
+    max-width: 95%;  /* Reducing it slightly for better responsiveness */
+    margin: auto;
+    padding: 20px;
+}
+
+/* Course Selection Dropdown */
+.course-selection {
+    width: 100%;
+    max-width: 600px; /* Limit the max width of the dropdown */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.course-selection label {
+    font-size: 16px;
+    color: #333;
+    margin-right: 10px;
+}
+
+.course-selection select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 300px; /* Restrict the max width of the dropdown */
+    text-align: center;
+}
+
+/* Styling for each course section */
+.course-section {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px; /* Limit the max width */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Styling for course headings */
+.course-section h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
 /* Styling for the Grades Table */
 .grades-table {
     width: 100%;
@@ -43,11 +93,21 @@
     text-align: center;
 }
 
-/* Ensure the table stretches across the container */
-.container {
-    max-width: 95%;  /* Reducing it slightly for better responsiveness */
-    margin: auto;
-    padding: 20px;
+/* Styling for the Enroll Student Button */
+.btn-add {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #27ae60; /* Green color */
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
+    background-color: #2ecc71; /* Darker green on hover */
 }
 
 .home-landing-text {
@@ -58,4 +118,70 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 10px; /* More spacing below the title */
+}
+
+.enroll-student {
+    width: 100%;
+    max-width: 600px;          /* Maximum width for the form */
+    padding: 20px;
+    background-color: #fff;    /* White background for the form */
+    border-radius: 8px;        /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+}
+
+/* Button and Input Styling */
+.btn-submit, select, input[type="text"], input[type="date"], textarea {
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+  
+.btn-submit {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+  
+.btn-submit:hover {
+    background-color: #45a049;
+}
+
+#back-courses-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#back-courses-link a {
+    color: #007bff;  /* A blue color similar to the buttons */
+    font-size: 16px;
+    text-decoration: none;  /* Remove underline */
+    font-weight: bold;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+#back-courses-link a:hover {
+    color: #0056b3;  /* Darker blue on hover */
+    text-decoration: underline;  /* Add underline on hover */
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .container-fluid {
+        align-items: flex-start;
+    }
+    .course-section {
+        width: 100%;
+    }
+    .course-selection select {
+        max-width: 100%; /* Allow the dropdown to be full width on smaller screens */
+    }
 }
